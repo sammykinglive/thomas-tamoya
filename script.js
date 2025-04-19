@@ -91,3 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+//forms
+document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(el => {
+    el.addEventListener('focus', () => {
+        el.closest('.form-group').classList.add('focused');
+    });
+    el.addEventListener('blur', () => {
+        if (!el.value) el.closest('.form-group').classList.remove('focused');
+    });
+});
