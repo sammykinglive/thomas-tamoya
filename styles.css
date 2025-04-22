@@ -21,10 +21,18 @@ body {
 
 
 
+
+
+
+
+
+
+
+
 /* Header Styles - Unique Classes */
 .header-top-bar {
     background-color: #FFF000;
-    padding: 5px 50px;
+    padding: 5px 100px;
     font-size: 0.9rem;
 }
 
@@ -107,7 +115,7 @@ body {
 
 .header-main-nav {
     background-color: #00246B;
-    padding: 12px 50px;
+    padding: 12px  100px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -547,7 +555,7 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: rgb(233, 233, 233);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -560,9 +568,10 @@ body {
 }
 
 .card h3 {
-    color: #2ecc71;
+    color: #00246B;
     margin-bottom: 15px;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 
@@ -1720,6 +1729,64 @@ body {
 
 
 
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: popIn 0.3s ease-out;
+}
+
+.popup-content h3 {
+    color: #00246B;
+    margin-bottom: 1rem;
+}
+
+.popup-close-btn {
+    background: #00246B;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s;
+}
+
+.popup-close-btn:hover {
+    background: #001a4a;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1746,7 +1813,7 @@ body {
 /* Top Footer Section */
 .footer-top {
     background-color: #f0f7f4;
-    padding: 100px 60px 0 100px;
+    padding: 100px 50px 0 100px;
 }
 
 .footer-top .footer-container {
@@ -2038,5 +2105,70 @@ body {
     .footer-contact h3,
     .footer-industries h3 {
         font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+/* Footer Image Styles */
+.footerimage {
+    text-align: left; /* Centers the image */
+    margin: 25px 0; /* Adds space above and below */
+    padding: 15px 0; /* Internal padding */
+    position: relative; /* For potential decorative elements */
+}
+
+.footerimage img {
+    max-width: 200px; /* Controls image size */
+    height: auto; /* Maintains aspect ratio */
+    filter: grayscale(30%) brightness(110%); /* Subtle effect */
+    transition: all 0.4s ease; /* Smooth hover effects */
+    border-radius: 4px; /* Soft rounded corners */
+    border: 1px solid rgba(0, 36, 107, 0.1); /* Light border */
+    box-shadow: 0 4px 12px rgba(0, 36, 107, 0.08); /* Soft shadow */
+}
+
+/* Hover effects */
+.footerimage:hover img {
+    filter: grayscale(0%) brightness(100%); /* Full color on hover */
+    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 6px 16px rgba(0, 36, 107, 0.12); /* Enhanced shadow */
+}
+
+/* Optional decorative elements */
+.footerimage::before,
+.footerimage::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 30%;
+    background: linear-gradient(90deg, transparent, #00246B, transparent);
+    top: 0;
+}
+
+.footerimage::before { left: 0; }
+.footerimage::after { right: 0; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footerimage img {
+        max-width: 140px; /* Slightly smaller on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .footerimage {
+        margin: 15px 0;
+    }
+    .footerimage img {
+        max-width: 120px; /* Smaller on mobile */
+    }
+    .footerimage::before,
+    .footerimage::after {
+        width: 25%; /* Shorter decorative lines */
     }
 }

@@ -39,7 +39,7 @@
             <div class="header-logo">
                 <img src="images/logo1.png" alt="Cleaning Company Logo">
             </div>
-            <div class="company-name">THOMAS & TAMOYA</div>
+            <div class="company-name">THOMAS & TAMOYA LLC</div>
         </div>
         <div class="header-contact">
             <a href="tel:(201) 564-0483" class="phone-link">
@@ -60,7 +60,7 @@
             <ul class="header-nav-list">
                 <li class="header-nav-item"><a href="index.html">Home</a></li>
                 <li class="header-nav-item"><a href="#services">Services</a></li>
-                <li class="header-nav-item"><a href="#aboutus">About</a></li>
+                <li class="header-nav-item"><a href="#aboutus">About Us</a></li>
                 <!--<li class="header-nav-item"><a href="#">Pricing</a></li>-->
                 <li class="header-nav-item"><a href="#footer">Contact</a></li>
             </ul>
@@ -72,7 +72,7 @@
     
 
         <div class="header-action">
-            <a href="#bookings" class="header-cta-btn">Book Now</a>
+            <a href="#booking" class="header-cta-btn">Book Now</a>
         </div>
         
     </div>
@@ -96,14 +96,14 @@
         <div class="slide active" style="background-image: url('images/hero1.jpg');"></div>
         <div class="slide" style="background-image: url('images/hero4.jpg');"></div>
         <div class="slide" style="background-image: url('images/hero3.jpg');"></div>
-        <div class="slide" style="background-image: url('images/hero2.jpg');"></div>
+        <div class="slide" style="background-image: url('images/newhero.jpg');"></div>
     </div>
     <div class="container">
         <div class="hero-content">
             <h1>Transform Your Space with Premium  Cleaning Services</h1>
             <p>We ensure long-lasting protection for your home or business.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Book Us</a>
+                <a href="#booking" class="btn btn-primary">Book Us</a>
                <!-- <a href="#" class="btn btn-secondary">Learn More</a>-->
             </div>
         </div>
@@ -116,15 +116,15 @@
             <div class="feature-cards">
                 <div class="card">
                     <h3>100% Satisfaction</h3>
-                    <p>Commitment to excellence in cleaning services & a passion for quality</p>
+                    <p>Our job isn’t done until you’re 100% satisfied with the shine!</p>
                 </div>
                 <div class="card">
                     <h3>24/7 Services</h3>
-                    <p>Commitment to excellence in cleaning services & a passion for quality</p>
+                    <p>Our team is available 24/7 to handle your cleaning needs.</p>
                 </div>
                 <div class="card">
                     <h3>Certified Expert</h3>
-                    <p>Commitment to excellence in cleaning services & a passion for quality</p>
+                    <p>Industry-approved techniques and attention to detail, you’re in expert hands</p>
                 </div>
             </div>
         </div>
@@ -202,7 +202,7 @@
                     </p>
 
              <div class="why-choose-cta">
-                <a href="#" class="why-choose-button">Learn more</a>
+                <a href="#services" class="why-choose-button">Learn more</a>
                 <div class="why-choose-contact">
                     <span class="why-choose-phone-icon"></span>
                     <span></span>
@@ -241,7 +241,7 @@
                 <div class="service-img-container">
                     <img src="images/image13.jpg" alt="Mone In / Move Out Cleaning" class="service-icon">
                 </div>
-                <h3 class="service-name">Mone In / Move Out Cleaning</h3>
+                <h3 class="service-name">Move In / Move Out Cleaning</h3>
                 <p class="service-desc">Ensure a spotless transition with our thorough move-in/move-out cleaning service. We deep clean every part of your and preparing it for your fresh start.</p>
             </div>
             
@@ -340,7 +340,7 @@
         <!-- Compact CTA -->
         <div class="testimonials-bottom">
             <h3>Are You The Next One?</h3>
-            <a href="#" class="cta-button">Join Now</a>
+            <a href="#footer" class="cta-button">Join Now</a>
         </div>
     </div>
 </section>
@@ -370,7 +370,7 @@
 
             <!-- Right Side - Contact Form -->
             <div class="contact-form-side">
-                <form class="contact-form">
+                <form class="contact-form" id="bookingForm"  action="sendmail.php" method="POST">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" required>
@@ -408,6 +408,16 @@
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+
+            <!-- Thank You Popup (hidden by default) -->
+            <div id="thankYouPopup" class="popup-overlay">
+             <div class="popup-content">
+                    <h3>Thank You! 🎉</h3>
+                    <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                    <button class="popup-close-btn">Close</button>
+            </div>
+</div>
+
         </div>
 
        
@@ -427,7 +437,7 @@
             <div class="footer-newsletter">
                 <h2>Transform Your Space with Our Cleaning Magic</h2>
                 <p>Sign up for the latest sustainability news for industry, businesses and communities</p>
-                <a href="#" class="btn btn-primary">Get a Free Quote</a>
+                <!--<a href="#" class="btn btn-primary">Get a Free Quote</a>-->
             </div>
             <div class="footer-brand">
                 <img src="images/clean2.png" alt="Clean MM Team" class="footer-image">
@@ -440,7 +450,10 @@
         <div class="footer-container">
             <div class="footer-about">
                 <h3 class="footer-logo">THOMAS & TAMOYA LLC</h3>
-                <p>At Thomas & Tamoya, we believe the best business relationships are built on choice, transparency and flexibility.</p>
+                <p>At Thomas & Tamoya, we believe the best business relationships are built on choice, 
+                    transparency and flexibility.</p>
+                    
+                    <div class="footerimage"><img src="images/logo3.jpg" alt=""></div>
             </div>
 
          <!--   <div class="footer-links">

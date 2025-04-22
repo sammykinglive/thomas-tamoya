@@ -128,3 +128,88 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+
+
+
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+        
+        // Calculate the target position (accounting for fixed header)
+        const headerHeight = document.querySelector('.header-main-nav').offsetHeight;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        // Animate the scroll
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        
+        // Update URL without jumping
+        if (history.pushState) {
+            history.pushState(null, null, targetId);
+        } else {
+            window.location.hash = targetId;
+        }
+    });
+});
+
+
+
+
+
+// Booking form submission
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    
+    fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success popup
+            document.getElementById('thankYouPopup').style.display = 'flex';
+            // Reset form
+            form.reset();
+
+             // Auto-close popup after 3 seconds (ADD THIS PART)
+             setTimeout(() => {
+                document.getElementById('thankYouPopup').style.display = 'none';
+            }, 3000);
+        } else {
+            // Show error messages
+            alert(data.errors.join('\n'));
+        }
+    })
+    .catch(error => {
+        alert('Network error. Please try again.');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+    });
+});
+
+// Close popup handler
+document.querySelector('.popup-close-btn').addEventListener('click', function() {
+    document.getElementById('thankYouPopup').style.display = 'none';
+});
